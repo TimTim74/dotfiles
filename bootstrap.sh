@@ -65,6 +65,9 @@ doConfig() {
 doInstall() {
     info "Installing Numix circles"
     ./software/numix.sh
+
+    echo "Installing xsltproc"
+    sudo apt-get install xsltproc
 }
 # ==========================================
 # ALL
