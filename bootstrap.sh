@@ -9,6 +9,17 @@ info() {
     printf "\033[00;34m$@\033[0m\n"
 }
 # ==========================================
+# COPY BASH
+# ==========================================
+doBash() {
+    info "Copying bash_aliases"
+    cp -v ./.bash_aliases ~/.bash_aliases
+
+    source ~/.bash_aliases
+
+    info "DONE"
+}
+# ==========================================
 # SYNC
 # ==========================================
 doSync() {
@@ -61,6 +72,75 @@ doConfig() {
 	fi
 }
 # ==========================================
+# ALL SOFTWARE
+# ==========================================
+doSoftware() {
+    info " "
+    info "Installing all software"
+    info " "
+
+    info "Brave browser"
+    ./software/brave-browser.sh
+
+    info " "
+    info "Docker"
+    ./software/docker.sh
+
+    info " "
+    info "Google browser"
+    ./software/google-chrome.sh
+
+    info " "
+    info "Numix Icons"
+    ./software/numix.sh
+
+    info " "
+    info "Pulse Equalizer"
+    ./software/pulseequalizer.sh
+
+    info " "
+    info "Remmina Remote Desktop"
+    ./software/remmina.sh
+
+    info " "
+    info "Shutter screenshot taker"
+    ./software/shutter.sh
+
+    info " "
+    info "Skype"
+    ./software/skype.sh
+
+    info " "
+    info "Slack"
+    ./software/slack.sh
+
+    info " "
+    info "Snap"
+    ./software/snap.sh
+
+    info " "
+    info "Spotify"
+    ./software/spotify.sh
+
+    info " "
+    info "Sublime Text"
+    ./software/sublime-text.sh
+
+    info " "
+    info "Virtual Box"
+    ./software/virtual-box.sh
+
+}
+# ==========================================
+# DOCKER RELATED
+# ==========================================
+doDocker() {
+    info " "
+    info "Portainer"
+    ./software/portainer.sh
+}
+# ==========================================
+#
 # ==========================================
 doInstall() {
     info "Installing Numix circles"
@@ -87,9 +167,11 @@ doAll() {
 doHelp() {
     echo "Usage: $(basename "$0") [options]" >&2
     echo
+    echo "   -b, --bash             Synchronizes bash_aliases to home directory"
     echo "   -s, --sync             Synchronizes dotfiles to home directory"
     echo "   -l, --link             Create symbolic links"
     echo "   -i, --install          Install (extra) software"
+    echo "   -d, --docker          Install Docker stuff"
     echo "   -f, --fonts            Copies font files"
     echo "   -c, --config           Configures your system"
     echo "   -a, --all              Does all of the above"
@@ -110,12 +192,20 @@ else
                 doGitConfig
                 shift
                 ;;
+            -b|--bash)
+                doBash
+                shift
+                ;;
             -l|--link)
                 doSymLink
                 shift
                 ;;
             -i|--install)
-                doInstall
+                doSoftware
+                shift
+                ;;
+            -d|--docker)
+                doDocker
                 shift
                 ;;
             -f|--fonts)
