@@ -2,8 +2,8 @@
 #
 ##################################################################################################################
 # Written to be used on 64 bits computers
-# Author 	: 	Erik Dubois
-# Website 	: 	http://www.erikdubois.be
+# Author 	: 	Tim Eichmann
+# Website 	: 	http://www.741231.com
 ##################################################################################################################
 ##################################################################################################################
 #
@@ -11,20 +11,16 @@
 #
 ##################################################################################################################
 
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/selmf/xUbuntu_16.04/ /' >> /etc/apt/sources.list.d/yacreader.list"
 
-sudo apt-get install apt-transport-https
+cd /tmp; wget http://download.opensuse.org/repositories/home:selmf/xUbuntu_16.04/Release.key
 
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-key add - < Release.key
 
 sudo apt-get update
 
-sudo apt-get install sublime-text
-
-
-##################################################################################################################
+sudo apt-get install -y yacreader
 
 echo "################################################################"
-echo "################      sublime text installed    ################"
+echo "###################   YAC Reader installed   ###################"
 echo "################################################################"
-

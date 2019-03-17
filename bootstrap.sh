@@ -171,7 +171,7 @@ doHelp() {
     echo "   -s, --sync             Synchronizes dotfiles to home directory"
     echo "   -l, --link             Create symbolic links"
     echo "   -i, --install          Install (extra) software"
-    echo "   -d, --docker          Install Docker stuff"
+    echo "   -d, --docker           Install Docker stuff"
     echo "   -f, --fonts            Copies font files"
     echo "   -c, --config           Configures your system"
     echo "   -a, --all              Does all of the above"
