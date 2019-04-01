@@ -115,10 +115,6 @@ doSoftware() {
     ./software/slack.sh
 
     info " "
-    info "Snap"
-    ./software/snap.sh
-
-    info " "
     info "Spotify"
     ./software/spotify.sh
 

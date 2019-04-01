@@ -11,9 +11,13 @@
 #
 ##################################################################################################################
 
-# Using snap to install
+curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add -
 
-sudo snap install skype --classic
+echo "deb https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list
+
+sudo sudo apt update
+
+sudo sudo apt install skypeforlinux
 
 
 echo "################################################################"
