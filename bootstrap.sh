@@ -103,6 +103,10 @@ doSoftware() {
     ./software/remmina.sh
 
     info " "
+    info "Postman"
+    ./software/postman.sh
+
+    info " "
     info "Shutter screenshot taker"
     ./software/shutter.sh
 
