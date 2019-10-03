@@ -43,6 +43,12 @@ doGitConfig() {
     git config --global core.excludesfile ~/.gitignore_global
 }
 # ==========================================
+# SSH Config
+# ==========================================
+doSSH() {
+
+}
+# ==========================================
 # FONTS
 # ==========================================
 doFonts() {
@@ -170,6 +176,7 @@ doHelp() {
     echo "   -b, --bash             Synchronizes bash_aliases to home directory"
     echo "   -s, --sync             Synchronizes dotfiles to home directory"
     echo "   -l, --link             Create symbolic links"
+    echo "   -h, --ssh              Install ssh configuration"
     echo "   -i, --install          Install (extra) software"
     echo "   -d, --docker           Install Docker stuff"
     echo "   -f, --fonts            Copies font files"
@@ -198,6 +205,10 @@ else
                 ;;
             -l|--link)
                 doSymLink
+                shift
+                ;;
+            -h|--ssh)
+                doSSH
                 shift
                 ;;
             -i|--install)
