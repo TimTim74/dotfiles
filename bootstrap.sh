@@ -46,7 +46,9 @@ doGitConfig() {
 # SSH Config
 # ==========================================
 doSSH() {
+  info "Copying new SSH configuration"
 
+  cp -v ./.ssh/config ~/.ssh/config
 }
 # ==========================================
 # FONTS
